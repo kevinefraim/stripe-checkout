@@ -26,7 +26,7 @@ const CheckoutForm: React.FC<Props>= ({price}) => {
     const result = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "https://www.google.com",
+        return_url: process.env.REACT_APP_RETURN_URL as string,
       },
     });
     if (result.error) {
