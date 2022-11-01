@@ -29,8 +29,11 @@ const CheckoutForm: React.FC<Props> = ({ price }) => {
     });
     if (result.error) {
       setError(result.error.message as string);
+      setIsLoading(false);
+
+      return;
     }
-setPaid(true)
+    setPaid(true);
     setIsLoading(false);
   };
 
@@ -48,10 +51,7 @@ setPaid(true)
           Pay ${price}
         </button>
       ) : (
-        <button
-          
-          className={`bg-green-600 p-2 rounded mt-4 text-white w-full`}
-        >
+        <button className={`bg-green-600 p-2 rounded mt-4 text-white w-full`}>
           <a href="kingdavid://">Return to the app</a>
         </button>
       )}
